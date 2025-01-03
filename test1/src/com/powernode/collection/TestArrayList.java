@@ -47,4 +47,30 @@ public class TestArrayList {
         System.out.println(Arrays.toString(a));
 
     }
+
+    @Test
+    public void test2() {
+        ArrayList<String> names = new ArrayList<>();
+        names.add("zhangsan");
+        names.add("lisi");
+        names.add("wangwu");
+        names.add("zhaoliu");
+        names.add("tianqi");
+        names.add("tianqi");
+
+        System.out.println(names);
+
+
+        ArrayList<String> clone = (ArrayList<String>) names.clone();
+        clone.add("123123");
+
+        System.out.println(names);
+
+        System.out.println(Integer.class);
+        Object obj = (Object) Integer.class;
+        System.out.println(obj);
+
+    }
 }
+
+
