@@ -1,13 +1,19 @@
-package org.example.test3;
+package org.example.test4;
 
 import java.sql.*;
 import java.util.ResourceBundle;
 
 /**
  * @Author: 19599
- * @Date: 2025/1/8 22:04
+ * @Date: 2025/1/8 22:59
  *
- * 使用jdbc完成查询操作
+ * 获取新增行的主键值
+ * 很多表的主键字段都是自增的，在某些业务环境下，我们在插入数据后希望获得这条记录的主键值
+ * 可以使用executeUpdate()的重载版本，该方法接受一个额外参数，用于指定是否需要获取自动生成的主键值
+ *
+ * 1. 在执行executeUpdate方法时指定一个标志位，表示需要返回插入的主键值
+ * 2. 调用Statement对象的getGeneratedKeys()方法，返回一个包含插入的主键值的ResultSet对象
+ *
  */
 public class Test1 {
     public static void main(String[] args) {
@@ -33,23 +39,18 @@ public class Test1 {
             stat = conn.createStatement();
 
             // 4. 执行SQL
-            String sql = "select name a, realname b, gender, tel from t_user";
-            resultSet = stat.executeQuery(sql);
+            String sql = "insert into t_product(name, price, create_time) values ('汽车', '166399.99', '2012-12-1')";
+            // 第二个参数是标志位，用来表示是否将新插入的数据行的主键值返回
+            int count = stat.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+            System.out.println("插入了" + count + "条记录");
 
-            // 5. 处理查询结果集
-            // 这里直接打印输出
+            // 获取这个新增行的主键值
+            // 返回的ResultSet结果集中就有新增行的主键值
+            resultSet = stat.getGeneratedKeys();
             while (resultSet.next()) {
-                // 去除光标指向的当前行的数据
-                // 不管数据库表中是什么类型，统一以字符串的类型取出
-                // 根据查询结果集里的列名 和 列下标获取均可
-                String name = resultSet.getString("a");
-                String realname = resultSet.getString("b");
-                String gender = resultSet.getString(3);
-                String tel = resultSet.getString(4);
-
-                System.out.println("{ Name: " + name + ", Realname: " + realname + ", Gender: " + gender + ", Tel: " + tel + "}");
+                int id = resultSet.getInt(1);
+                System.out.println(id);
             }
-
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
@@ -78,10 +79,6 @@ public class Test1 {
             }
 
         }
-
-
-
-
 
     }
 }
