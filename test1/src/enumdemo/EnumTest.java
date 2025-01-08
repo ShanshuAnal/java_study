@@ -50,6 +50,11 @@ public class EnumTest {
             sport.run();
             sport.enjoy();
             System.out.println("*****************");
+
+
+            System.out.println(
+
+            );
         }
     }
 }

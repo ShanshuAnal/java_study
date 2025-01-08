@@ -34,6 +34,6 @@ public class PropertiesTest {
             System.out.println(name + "=" + property);
         }
 
-
+        double pow = Math.pow(2.0, 2);
     }
 }

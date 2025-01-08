@@ -86,7 +86,7 @@ public class TestMap {
         // （1）set集合实现Collections，因此可以用迭代器
         Iterator<Integer> iterator = keys.iterator();
         while (iterator.hasNext()) {
-            Integer key = iterator.next();
+            int key = iterator.next();
             String value = map.get(key);
             System.out.println(key + "=" + value);
         }
@@ -106,7 +106,8 @@ public class TestMap {
             Map.Entry<Integer, String> entry = iterator1.next();
             Integer key = entry.getKey();
             String value = entry.getValue();
-            System.out.println(key + "=" + value);
+            System.out.println("**************");
+            System.out.println(key + ":" + value);
 
             System.out.println(entry);
         }
@@ -151,11 +152,6 @@ public class TestMap {
         }
 
 
-    }
-
-    @Test
-    public void testModel() {
-        System.out.println(-8 % 3);
     }
 
     /**

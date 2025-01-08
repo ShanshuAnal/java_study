@@ -1,5 +1,6 @@
 package com.powernode.collection;
 
+import com.powernode.map.UserDemo;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -69,6 +70,8 @@ public class TestArrayList {
         System.out.println(Integer.class);
         Object obj = (Object) Integer.class;
         System.out.println(obj);
+
+        clone.forEach(System.out::printf);
 
     }
 }

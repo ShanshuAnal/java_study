@@ -16,10 +16,10 @@ public class MyLinked1<E> {
         E data;
         Node<E> next;
 
-        public Node() {
+        Node() {
         }
 
-        public Node(E data, Node<E> next) {
+        Node(E data, Node<E> next) {
             this.data = data;
             this.next = next;
         }
