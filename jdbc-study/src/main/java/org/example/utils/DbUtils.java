@@ -15,7 +15,8 @@ public class DbUtils {
      * 所以工具类中的方法都是直接采用“类名.”的方式进行访问
      * 因此不需要new对象
      */
-    private DbUtils(){}
+    private DbUtils() {
+    }
 
     /**
      * 静态变量
@@ -53,6 +54,7 @@ public class DbUtils {
 
     /**
      * 获取数据库连接对象
+     *
      * @return Connection 数据库操作对象
      * @throws SQLException sql异常
      */
@@ -64,9 +66,10 @@ public class DbUtils {
 
     /**
      * 释放资源
-     * @param conn  连接对象
-     * @param stmt  数据库操作对象
-     * @param rs    结果集对象
+     *
+     * @param conn 连接对象
+     * @param stmt 数据库操作对象
+     * @param rs   结果集对象
      */
     public static void close(Connection conn, Statement stmt, ResultSet rs) {
         if (rs != null) {
