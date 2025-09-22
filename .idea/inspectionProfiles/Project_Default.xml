@@ -32,7 +32,7 @@
       <option name="minLines" value="4" />
     </inspection_tool>
     <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ADDITIONAL_TAGS" value="name:,Package:,Author:,Date:" />
+      <option name="ADDITIONAL_TAGS" value="name:,Package:,Author:,Date:,Description:" />
     </inspection_tool>
   </profile>
 </component>

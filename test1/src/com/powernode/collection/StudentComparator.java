@@ -1,5 +1,7 @@
 package com.powernode.collection;
 
+import org.junit.jupiter.api.Assertions;
+
 import java.util.Comparator;
 
 /**
@@ -19,6 +21,8 @@ public class StudentComparator implements Comparator<Student> {
 
 //        按年龄排序
         return o1.getAge() - o2.getAge();
+
+
     }
 }
 

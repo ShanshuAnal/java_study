@@ -4,7 +4,9 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import javax.sql.DataSource;
+import java.io.FileReader;
 import java.io.InputStream;
+import java.lang.reflect.Constructor;
 import java.sql.Connection;
 import java.util.Properties;
 
@@ -24,5 +26,13 @@ public class Test3 {
         System.out.println(conn);
 
         conn.close();
+
+        FileReader reader = new FileReader("jdbc.properties");
+        Properties pro = new Properties();
+        pro.load(reader);
+
+        Class<?> aClass = Class.forName("com.mysql.jdbc.Driver");
+        Constructor<?> constructor = aClass.getDeclaredConstructor();
+        Object o = constructor.newInstance();
     }
 }
